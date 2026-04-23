@@ -46,6 +46,14 @@ def main():
                 log_event("player_hit")
                 print("Game over!")
                 sys.exit()
+            
+            for bullet in shots:
+                if stone.collides_with(bullet):
+                    log_event("asteroid_shot")
+                    bullet.kill()
+                    stone.split()
+
+        
 
         for thing in drawable:
             thing.draw(screen)
